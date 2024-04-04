@@ -19,7 +19,7 @@ import { counterReducer } from './state/counter.reducer';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({ counter: counterReducer })
+    StoreModule.forRoot({ state: counterReducer })
   ],
   providers: [],
   bootstrap: [AppComponent]

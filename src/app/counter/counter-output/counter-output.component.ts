@@ -13,10 +13,10 @@ export class CounterOutputComponent implements OnInit {
   // ngOnInit(): void {
   // }
   counter: number;
-  constructor(private store: Store<{ counter: { counter: number } }>) { }
+  constructor(private store: Store<{ state: any }>) { }
 
   ngOnInit(): void {
-    this.store.select('counter').subscribe((data) => {
+    this.store.select('state').subscribe((data) => {
       this.counter = data.counter;
     })
   }

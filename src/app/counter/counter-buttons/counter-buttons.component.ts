@@ -26,7 +26,7 @@ export class CounterButtonsComponent implements OnInit {
   // onReset() {
   //   this.reset.emit()
   // }
-  constructor(private store: Store<{ counter: { counter: number } }>) {
+  constructor(private store: Store<{ state: any }>) {
   }
 
   ngOnInit(): void { }
