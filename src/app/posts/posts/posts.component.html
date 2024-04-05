@@ -2,7 +2,7 @@
     <h3>Posts</h3>
 </div>
 
-<table class="table">
+<table class="table" *ngIf="postList$ | async as posts">
     <thead>
         <tr>
             <th scope="col">#</th>
@@ -11,7 +11,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let post of postList$ | async">
+        <tr *ngFor="let post of posts">
             <td>{{post.id}}</td>
             <td>{{post.title}}</td>
             <td>{{post.description}}</td>
