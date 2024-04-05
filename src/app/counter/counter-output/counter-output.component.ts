@@ -9,7 +9,9 @@ import { stateInterface } from 'src/app/state/counter.state';
   templateUrl: './counter-output.component.html',
   styleUrls: ['./counter-output.component.scss'],
 })
-export class CounterOutputComponent implements OnInit, OnDestroy {
+export class CounterOutputComponent implements OnInit
+// , OnDestroy
+{
   // @Input() counter: any;
   // constructor() { }
 
@@ -24,15 +26,20 @@ export class CounterOutputComponent implements OnInit, OnDestroy {
   //   this.counter$ = this.store.select('counter')
   // }
 
-  ngOnInit(): void {
-    this.counterSubscription = this.store.select(getcounter).subscribe((data) => {
-      this.counter = data;
-    })
-  }
+  // ngOnInit(): void {
+  //   this.counterSubscription = this.store.select(getcounter).subscribe((data) => {
+  //     this.counter = data;
+  //   })
+  // }
 
-  ngOnDestroy(): void {
-    if (this.counterSubscription) {
-      this.counterSubscription.unsubscribe();
-    }
+  // ngOnDestroy(): void {
+  //   if (this.counterSubscription) {
+  //     this.counterSubscription.unsubscribe();
+  //   }
+  // }
+
+  counter$: Observable<number>;
+  ngOnInit(): void {
+    this.counter$ = this.store.select(getcounter)
   }
 }
