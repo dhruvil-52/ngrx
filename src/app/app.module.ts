@@ -7,14 +7,13 @@ import { CounterComponent } from './counter/counter/counter.component';
 import { CounterButtonsComponent } from './counter/counter-buttons/counter-buttons.component';
 import { CounterOutputComponent } from './counter/counter-output/counter-output.component';
 import { StoreModule } from '@ngrx/store';
-import { counterReducer } from './counter/state/counter.reducer';
 import { CounterInputComponent } from './counter/counter-input/counter-input.component';
 import { FormsModule } from '@angular/forms';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HomeComponent } from './home/home/home.component';
 import { PostsComponent } from './posts/posts/posts.component';
 import { SharedModule } from './shared/shared.module';
-import { postReducer } from './posts/state/posts.reducer';
+import { appReducer } from './app.state';
 
 @NgModule({
   declarations: [
@@ -31,7 +30,7 @@ import { postReducer } from './posts/state/posts.reducer';
     AppRoutingModule,
     FormsModule,
     SharedModule,
-    StoreModule.forRoot({ counter: counterReducer, posts: postReducer }),
+    StoreModule.forRoot(appReducer),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: false,
