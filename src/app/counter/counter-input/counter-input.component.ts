@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { customerIncrement } from 'src/app/state/counter.actions';
-import { stateInterface } from 'src/app/state/counter.state';
+import { customerIncrement } from 'src/app/counter/state/counter.actions';
+import { stateInterface } from 'src/app/counter/state/counter.state';
 
 @Component({
   selector: 'app-counter-input',

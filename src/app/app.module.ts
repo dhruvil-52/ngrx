@@ -7,9 +7,10 @@ import { CounterComponent } from './counter/counter/counter.component';
 import { CounterButtonsComponent } from './counter/counter-buttons/counter-buttons.component';
 import { CounterOutputComponent } from './counter/counter-output/counter-output.component';
 import { StoreModule } from '@ngrx/store';
-import { counterReducer } from './state/counter.reducer';
+import { counterReducer } from './counter/state/counter.reducer';
 import { CounterInputComponent } from './counter/counter-input/counter-input.component';
 import { FormsModule } from '@angular/forms';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,17 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    StoreModule.forRoot({ counter: counterReducer })
+    StoreModule.forRoot({ counter: counterReducer }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: false,
+      autoPause: true,
+      features: {
+        pause: false,
+        lock: true,
+        persist: true
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

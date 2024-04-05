@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
-import { getcounter } from 'src/app/state/counter.selector';
-import { stateInterface } from 'src/app/state/counter.state';
+import { getcounter } from 'src/app/counter/state/counter.selector';
+import { stateInterface } from 'src/app/counter/state/counter.state';
 
 @Component({
   selector: 'app-counter-output',
