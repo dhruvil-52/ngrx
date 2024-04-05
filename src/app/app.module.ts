@@ -11,6 +11,9 @@ import { counterReducer } from './counter/state/counter.reducer';
 import { CounterInputComponent } from './counter/counter-input/counter-input.component';
 import { FormsModule } from '@angular/forms';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { HomeComponent } from './home/home/home.component';
+import { PostsComponent } from './posts/posts/posts.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -18,12 +21,15 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     CounterComponent,
     CounterButtonsComponent,
     CounterOutputComponent,
-    CounterInputComponent
+    CounterInputComponent,
+    HomeComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    SharedModule,
     StoreModule.forRoot({ counter: counterReducer }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
