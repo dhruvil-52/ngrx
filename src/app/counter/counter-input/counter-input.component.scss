@@ -1,0 +1,17 @@
+.counter-input {
+
+    button {
+        border-left: none;
+        cursor: pointer;
+    }
+
+    input {
+        border-right: none;
+        width: 120px;
+    }
+
+    input:focus {
+        outline: none;
+    }
+
+}
