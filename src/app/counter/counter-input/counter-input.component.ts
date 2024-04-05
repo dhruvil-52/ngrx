@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { customerIncrement } from 'src/app/counter/state/counter.actions';
-import { stateInterface } from 'src/app/counter/state/counter.state';
+import { counterInterface } from 'src/app/counter/state/counter.state';
 
 @Component({
   selector: 'app-counter-input',
@@ -11,7 +11,7 @@ import { stateInterface } from 'src/app/counter/state/counter.state';
 export class CounterInputComponent {
   num: number;
 
-  constructor(private store: Store<{ counter: stateInterface }>) {
+  constructor(private store: Store<{ counter: counterInterface }>) {
 
   }
 

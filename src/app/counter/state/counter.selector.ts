@@ -1,7 +1,7 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { stateInterface } from "./counter.state";
+import { counterInterface } from "./counter.state";
 
-const getCounterState = createFeatureSelector<stateInterface>('counter');
+const getCounterState = createFeatureSelector<counterInterface>('counter');
 
 export const getcounter = createSelector(getCounterState, (state) => {
     return state.counter;

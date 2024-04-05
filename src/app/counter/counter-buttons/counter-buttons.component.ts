@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { decrement, increment, reset } from 'src/app/counter/state/counter.actions';
-import { stateInterface } from 'src/app/counter/state/counter.state';
+import { counterInterface } from 'src/app/counter/state/counter.state';
 
 @Component({
   selector: 'app-counter-buttons',
@@ -27,7 +27,7 @@ export class CounterButtonsComponent implements OnInit {
   // onReset() {
   //   this.reset.emit()
   // }
-  constructor(private store: Store<{ counter: stateInterface }>) {
+  constructor(private store: Store<{ counter: counterInterface }>) {
   }
 
   ngOnInit(): void { }
