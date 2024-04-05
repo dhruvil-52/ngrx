@@ -14,6 +14,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HomeComponent } from './home/home/home.component';
 import { PostsComponent } from './posts/posts/posts.component';
 import { SharedModule } from './shared/shared.module';
+import { postReducer } from './posts/state/posts.reducer';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     FormsModule,
     SharedModule,
-    StoreModule.forRoot({ counter: counterReducer }),
+    StoreModule.forRoot({ counter: counterReducer, posts: postReducer }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: false,
