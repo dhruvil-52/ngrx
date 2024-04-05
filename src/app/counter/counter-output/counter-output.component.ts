@@ -17,8 +17,8 @@ export class CounterOutputComponent implements OnInit
 
   // ngOnInit(): void {
   // }
-  counter: number;
-  counterSubscription: Subscription;
+  // counter: number;
+  // counterSubscription: Subscription;
   constructor(private store: Store<{ counter: counterInterface }>) { }
 
   // counter$: Observable<counterInterface>;
