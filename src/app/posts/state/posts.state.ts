@@ -8,13 +8,15 @@ export const initialPostList: postInterface = {
     posts: [
         {
             id: 1,
-            title: "title 1",
-            description: "description 1"
+            name: "Dhruvil",
+            age: 24,
+            gender: "Male"
         },
         {
             id: 2,
-            title: "title 2",
-            description: "description 2"
+            name: "Aarti",
+            age: 23,
+            gender: "Female"
         }
     ]
 }

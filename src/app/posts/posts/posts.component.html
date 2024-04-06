@@ -1,20 +1,31 @@
-<div>
-    <h3>Posts</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-lg-6 col-md-6 border-right">
+            <div>
+                <h4>Posts</h4>
+                <hr>
+            </div>
+            <table class="table" *ngIf="postList$ | async as posts">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let post of posts">
+                        <td>{{post.id}}</td>
+                        <td>{{post.name}}</td>
+                        <td>{{post.age}}</td>
+                        <td>{{post.gender}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-6 col-lg-6 col-md-6">
+            <app-post-add-edit></app-post-add-edit>
+        </div>
+    </div>
 </div>
-
-<table class="table" *ngIf="postList$ | async as posts">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Title</th>
-            <th scope="col">Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let post of posts">
-            <td>{{post.id}}</td>
-            <td>{{post.title}}</td>
-            <td>{{post.description}}</td>
-        </tr>
-    </tbody>
-</table>

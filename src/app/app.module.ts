@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home/home.component';
 import { PostsComponent } from './posts/posts/posts.component';
 import { SharedModule } from './shared/shared.module';
 import { appReducer } from './app.state';
+import { PostAddEditComponent } from './posts/post-add-edit/post-add-edit.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { appReducer } from './app.state';
     CounterOutputComponent,
     CounterInputComponent,
     HomeComponent,
-    PostsComponent
+    PostsComponent,
+    PostAddEditComponent
   ],
   imports: [
     BrowserModule,
