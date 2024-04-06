@@ -7,6 +7,9 @@ import { CounterComponent } from './counter.component';
 import { CounterButtonsComponent } from './counter-buttons/counter-buttons.component';
 import { CounterOutputComponent } from './counter-output/counter-output.component';
 import { CounterInputComponent } from './counter-input/counter-input.component';
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './state/counter.reducer';
+import { COUNTER_STATE_NAME } from '../shared/models/static.model';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,8 @@ import { CounterInputComponent } from './counter-input/counter-input.component';
   imports: [
     CommonModule,
     CounterRoutingModule,
-    FormsModule
+    FormsModule,
+    StoreModule.forFeature(COUNTER_STATE_NAME, counterReducer)
   ]
 })
 export class CounterModule { }

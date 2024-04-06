@@ -5,6 +5,9 @@ import { PostsRoutingModule } from './posts-routing.module';
 import { PostsComponent } from './posts.component';
 import { PostAddEditComponent } from './post-add-edit/post-add-edit.component';
 import { FormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { postReducer } from './state/posts.reducer';
+import { POST_STATE_NAME } from '../shared/models/static.model';
 
 
 @NgModule({
@@ -15,7 +18,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     PostsRoutingModule,
-    FormsModule
+    FormsModule,
+    StoreModule.forFeature(POST_STATE_NAME, postReducer)
   ]
 })
 export class PostsModule { }

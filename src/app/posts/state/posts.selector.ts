@@ -1,8 +1,9 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { postInterface } from "./posts.state";
 import { Post } from "src/app/shared/models/post.interface";
+import { POST_STATE_NAME } from "src/app/shared/models/static.model";
 
-const getPostState = createFeatureSelector<postInterface>('posts')
+const getPostState = createFeatureSelector<postInterface>(POST_STATE_NAME)
 
 export const getPosts = createSelector(getPostState, (state) => {
     return state.posts;
