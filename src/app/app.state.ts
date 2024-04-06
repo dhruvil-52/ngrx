@@ -4,8 +4,8 @@ import { postReducer } from "./posts/state/posts.reducer";
 import { postInterface } from "./posts/state/posts.state";
 
 export interface AppState {
-    counter: counterInterface,
-    posts: postInterface
+    counter: counterInterface;
+    posts: postInterface;
 }
 
 export const appReducer = {
