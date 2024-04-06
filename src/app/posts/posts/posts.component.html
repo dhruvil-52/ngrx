@@ -1,8 +1,15 @@
-<div class="container">
+<div class="container my-2">
     <div class="row">
-        <div class="col-sm-6 col-lg-6 col-md-6 border-right">
-            <div>
-                <h4>Posts</h4>
+        <div class="col-sm-6 col-lg-6 col-md-6">
+            <div class="row">
+                <div class="col-6">
+                    <h4>Posts</h4>
+                </div>
+                <div class="col-6 float-right">
+                    <button type="button" class="btn btn-sm btn-primary ml-2" [routerLink]="['./add']">
+                        Add
+                    </button>
+                </div>
                 <hr>
             </div>
             <table class="table" *ngIf="postList$ | async as posts">
@@ -12,6 +19,7 @@
                         <th>Name</th>
                         <th>Age</th>
                         <th>Gender</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -20,12 +28,21 @@
                         <td>{{post.name}}</td>
                         <td>{{post.age}}</td>
                         <td>{{post.gender}}</td>
+                        <td>
+                            <button type="button" class="btn btn-sm btn-primary ml-2">
+                                <i class="bi bi-pencil-square pointer" [routerLink]="['edit',post.id]"></i>
+                            </button>
+                            <button type="button" class="btn btn-sm btn-danger ml-2" (click)="onDelete(post)">
+                                <i class="bi bi-trash pointer"></i>
+                            </button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
         <div class="col-sm-6 col-lg-6 col-md-6">
-            <app-post-add-edit></app-post-add-edit>
+            <!-- <app-post-add-edit></app-post-add-edit> -->
+            <router-outlet></router-outlet>
         </div>
     </div>
 </div>

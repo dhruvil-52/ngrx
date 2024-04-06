@@ -4,14 +4,19 @@
 }
 
 .form-footer {
+    margin-top: 10px !important;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .ml-2 {
     margin-left: 0.5rem !important;
 }
 
-.pointer{
+.pointer {
     cursor: pointer;
+}
+
+.float-right {
+    text-align: right;
 }
