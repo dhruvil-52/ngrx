@@ -9,11 +9,13 @@ import { HomeComponent } from './home/home/home.component';
 import { SharedModule } from './shared/shared.module';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http'
+import { LoadingSpinnerComponent } from './shared/containers/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
