@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app.state';
+import { loginStart } from '../state/auth.actions';
 
 @Component({
   selector: 'app-login',
@@ -7,4 +10,10 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
+  constructor(private store: Store<AppState>) { }
+  user: any = { email: 'test@test.com', password: '123456' };
+
+  onSubmit() {
+    this.store.dispatch(loginStart({ email: this.user.email, password: this.user.password }));
+  }
 }
