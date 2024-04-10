@@ -1,4 +1,7 @@
 <div class="container">
+    <div class="alert alert-danger" role="alert" *ngIf="errorMsg | async">
+        {{errorMsg | async}}
+    </div>
     <div class="row">
         <div class="col-12">
             <div class="form-group my-4">
