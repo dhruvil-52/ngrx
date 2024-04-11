@@ -10,6 +10,7 @@ import { SharedModule } from './shared/shared.module';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http'
 import { LoadingSpinnerComponent } from './shared/containers/loading-spinner/loading-spinner.component';
+import { appReducer } from './app.state';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { LoadingSpinnerComponent } from './shared/containers/loading-spinner/loa
     AppRoutingModule,
     SharedModule,
     HttpClientModule,
-    StoreModule.forRoot({}),
+    StoreModule.forRoot(appReducer),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
