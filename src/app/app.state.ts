@@ -6,17 +6,20 @@ import { postReducer } from "./posts/state/posts.reducer";
 import { postInterface } from "./posts/state/posts.state";
 import { sharedReducer } from "./shared/store/shared.reducer";
 import { SharedInterface } from "./shared/store/shared.state";
+import { RouterReducerState, routerReducer } from "@ngrx/router-store";
 
 export interface AppState {
     counter: counterInterface;
     posts: postInterface;
     shared: SharedInterface;
-    auth: authState
+    auth: authState,
+    router: RouterReducerState
 }
 
 export const appReducer = {
     counter: counterReducer,
     posts: postReducer,
     shared: sharedReducer,
-    auth:AuthReducer
+    auth: AuthReducer,
+    router: routerReducer
 }

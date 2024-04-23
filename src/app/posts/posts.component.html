@@ -30,7 +30,8 @@
                         <td>{{post.gender}}</td>
                         <td>
                             <button type="button" class="btn btn-sm btn-primary">
-                                <i class="bi bi-pencil-square pointer" [routerLink]="['edit',post.id]"></i>
+                                <!-- queryParams pass for just testing router store -->
+                                <i class="bi bi-pencil-square pointer" [routerLink]="['edit',post.id]" [queryParams]="{ testing: 'router-store' }"></i>
                             </button>
                             <button type="button" class="btn btn-sm btn-danger ml-2" (click)="onDelete(post)">
                                 <i class="bi bi-trash pointer"></i>

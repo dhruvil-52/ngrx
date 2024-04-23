@@ -11,6 +11,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http'
 import { LoadingSpinnerComponent } from './shared/containers/loading-spinner/loading-spinner.component';
 import { appReducer } from './app.state';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { CustomSerializer } from './router-store/custom-serializer';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { appReducer } from './app.state';
         lock: true,
         persist: true
       }
-    })
+    }),
+    StoreRouterConnectingModule.forRoot({ serializer: CustomSerializer }),
   ],
   providers: [],
   bootstrap: [AppComponent]
