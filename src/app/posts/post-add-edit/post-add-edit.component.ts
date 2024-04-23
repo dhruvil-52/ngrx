@@ -8,37 +8,47 @@ import { getPostById } from '../state/posts.selector';
 @Component({
   selector: 'app-post-add-edit',
   templateUrl: './post-add-edit.component.html',
-  styleUrls: ['./post-add-edit.component.scss']
+  styleUrls: ['./post-add-edit.component.scss'],
 })
-
 export class PostAddEditComponent implements OnInit {
   user: any = {};
   id: number;
 
-  constructor(private store: Store<AppState>,
+  constructor(
+    private store: Store<AppState>,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      this.id = +params["id"];
-      if (this.id) {
-        this.store.select(getPostById, { id: this.id }).subscribe((data) => {
-          this.user = JSON.parse(JSON.stringify(data));
-        })
-
-        // // select and createSelector not working if pass parameter so you can use below code
-        // this.store.select(getPostById({ id: this.id })).subscribe((data) => {
-        //   this.user = data;
-        // })
-      } else {
-        this.user = {}
-      }
-    })
+    /**
+     * traditional way
+     */
+    // this.route.params.subscribe(params => {
+    //   this.id = +params["id"];
+    //   if (this.id) {
+    //     this.store.select(getPostById, { id: this.id }).subscribe((data) => {
+    //       this.user = JSON.parse(JSON.stringify(data));
+    //     })
+    //     // // select and createSelector not working if pass parameter so you can use below code
+    //     // this.store.select(getPostById({ id: this.id })).subscribe((data) => {
+    //     //   this.user = data;
+    //     // })
+    //   } else {
+    //     this.user = {}
+    //   }
+    // })
+    /**
+     * By Router Store
+     * just call action, because router store has Id already
+     */
+    this.store.select(getPostById).subscribe((data) => {
+      this.user = JSON.parse(JSON.stringify(data));
+    });
   }
 
   saveUser() {
     this.store.dispatch(addPost({ user: this.user }));
-    this.router.navigate(['posts'])
+    this.router.navigate(['posts']);
   }
 }
