@@ -11,11 +11,22 @@ import { Post } from "src/app/shared/models/post.interface"
 /**
  * by using entity
  */
-export interface postInterface extends EntityState<Post> { };
-export const postsAdapter = createEntityAdapter<Post>();
+export interface postInterface extends EntityState<Post> {
+    // if you want to add another new field except post array
+    noOfUsers: number;
+};
+export const postsAdapter = createEntityAdapter<Post>({
+    // below not neccesary because ngrx consider id by default selectId,
+    // below line for set another selectId like id, userId etc,
+    selectId: (post: Post) => post.id,
+    // for checking sorting, add new post
+    sortComparer: sortByName,
+});
 
 export const initialPostList: postInterface = postsAdapter.getInitialState(
     {
+        // if you want set defualt value of new field;
+        noOfUsers: 2,
         entities: {
             '1': {
                 id: 1,
@@ -33,3 +44,7 @@ export const initialPostList: postInterface = postsAdapter.getInitialState(
         ids: ['1', '2']
     }
 );
+
+export function sortByName(a: Post, b: Post): number {
+    return a.name.localeCompare(b.name)
+}

@@ -39,7 +39,13 @@ const _postReducer = createReducer(initialPostList,
             return postsAdapter.updateOne(updatedData, state);
         } else {
             data.id = Object.keys(state.entities).length + 1;
-            return postsAdapter.addOne(data, state);
+            // return postsAdapter.addOne(data, state);
+            // if you want to update newly created vm;
+            return postsAdapter.addOne(data, {
+                ...state,
+                noOfUsers: state.noOfUsers + 1
+            });
+
         }
     }), on(deletePost, (state, action) => {
         // let id = action.userId;
@@ -58,7 +64,10 @@ const _postReducer = createReducer(initialPostList,
         //     ...state,
         //     posts: posts
         // }
-        return postsAdapter.removeOne(action.userId, state)
+        return postsAdapter.removeOne(action.userId, {
+            ...state,
+            noOfUsers: state.noOfUsers - 1
+        })
     })
 )
 export function postReducer(state: any, action: any) {

@@ -74,7 +74,7 @@ export const getPostById = createSelector(
   getCurrentRoute,
   (posts, route: RouterStateUrl) => {
     console.log("posts", posts)
-    return posts ? posts[route.params['id']] : null;
+    return posts ? posts[route.params['id']] : {};
   }
 );
 
@@ -93,3 +93,5 @@ export const getPostById = createSelector(
 //         return {}
 //     }
 // });
+
+export const getUserCounts = createSelector(getPostState, (state) => state.noOfUsers)

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { postInterface } from './state/posts.state';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { getPosts } from './state/posts.selector';
+import { getPosts, getUserCounts } from './state/posts.selector';
 import { Post } from 'src/app/shared/models/post.interface';
 import { AppState } from 'src/app/app.state';
 import { deletePost } from './state/posts.actions';
@@ -14,6 +14,7 @@ import { deletePost } from './state/posts.actions';
 })
 export class PostsComponent implements OnInit {
   postList$: Observable<Post[]>;
+  noOfUser$: Observable<number>;
 
   constructor(private store: Store<AppState>) { }
 
@@ -26,5 +27,6 @@ export class PostsComponent implements OnInit {
 
   ngOnInit(): void {
     this.postList$ = this.store.select(getPosts);
+    this.noOfUser$ = this.store.select(getUserCounts);
   }
 }
